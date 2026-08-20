@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DACHI - TikTok 237</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { background: black; margin:0; }</style>
+</head>
+<body class="text-white">
+  <div class="w-full h-[100vh] bg-black relative">
+    <video id="video" class="w-full h-full object-cover" autoplay loop playsinline></video>
+    <div class="absolute bottom-20 left-4 w-3/4">
+      <p id="user" class="font-bold text-lg"></p>
+      <p id="desc" class="text-sm"></p>
+    </div>
+    <div class="absolute bottom-20 right-4 flex-col items-center gap-6">
+      <div class="text-center"><p class="text-4xl">❤️</p><p id="likes" class="font-bold text-sm"></p></div>
+      <div class="text-center"><p class="text-4xl">💬</p><p class="font-bold text-sm">12</p></div>
+      <div class="text-center"><p class="text-4xl">📤</p><p class="font-bold text-sm">Partager</p></div>
+    </div>
+  </div>
+<script>
+  const videos = [
+    { url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", user: "@camer237", desc: "Le ndolé de ma mère 🔥", likes: 1200 },
+    { url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", user: "@doula_boss", desc: "Ambassadeur de Douala 😂", likes: 8500 },
+  ];
+  let index = 0;
+  function loadVideo() {
+    document.getElementById('video').src = videos[index].url;
+    document.getElementById('user').innerText = videos[index].user;
+    document.getElementById('desc').innerText = videos[index].desc;
+    document.getElementById('likes').innerText = videos[index].likes;
+  }
+  document.getElementById('video').addEventListener('click', () => { index = (index + 1) % videos.length; loadVideo(); });
+  loadVideo();
+</script>
+</body>
+</html>
